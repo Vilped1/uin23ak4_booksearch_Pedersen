@@ -1,0 +1,49 @@
+#card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem;
+
+    article {
+        width: 20rem;
+        border: 2px solid rgba(0, 0, 0, 0.422);
+        border-radius: 1rem; 
+        padding: 0.75rem;
+        background-color: rgba(176, 162, 149, 0.66);
+        text-align: start;
+        display: flex;
+
+        img {
+            /* display: inline-block; */
+            width: 6rem;
+            height: auto;
+            padding-right: 1rem;
+        }
+
+        .noimg {
+            // padding: 4rem 0rem;
+            margin-right: 1rem;
+            background-color: #e8e6dd;
+            width: 7rem;
+            /* height: 20rem; */
+            border: 0.5rem solid beige;
+            text-align: center;
+        }
+     
+        #content {
+
+            // display: flex;
+
+            h3 {
+                margin-top: 10px;
+                height: 3rem;
+            }
+    
+            ul {
+                list-style: none;
+                padding: 5px;
+            }
+        }
+    }
+}
