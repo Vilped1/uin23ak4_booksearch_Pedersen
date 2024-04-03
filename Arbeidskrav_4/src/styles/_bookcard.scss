@@ -2,47 +2,64 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    // gap: 1.5rem;
     margin: 1rem;
 
     article {
-        width: 20rem;
-        border: 2px solid rgba(0, 0, 0, 0.422);
-        border-radius: 1rem; 
-        padding: 0.75rem;
-        background-color: rgba(176, 162, 149, 0.66);
+        width: 22rem;
+        border-right: 2px solid rgba(0, 0, 0, 0.422);
+        border-bottom: 2px solid rgba(0, 0, 0, 0.422);
+        // border-radius: 1rem;
+        padding: 1.5rem;
+        // background-color: rgba(3, 50, 37, 0.66);
         text-align: start;
         display: flex;
+        justify-content: space-between;
+        margin: 0;
 
         img {
             /* display: inline-block; */
             width: 6rem;
             height: auto;
-            padding-right: 1rem;
+            margin-right: 1rem;
+            // border: #e8e6dd solid 2px;
+            border-radius: 3px;
+            object-fit: contain;
         }
 
         .noimg {
-            // padding: 4rem 0rem;
             margin-right: 1rem;
             background-color: #e8e6dd;
-            width: 7rem;
+            width: 6rem;
             /* height: 20rem; */
-            border: 0.5rem solid beige;
-            text-align: center;
+            border: 0.25rem solid beige;
+            /* text-align: center; */
+            padding: 0 0 .5rem 0;
+            /* margin: 0 1rem 0 0; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
      
         #content {
-
-            // display: flex;
+            width: 15rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
             h3 {
-                margin-top: 10px;
-                height: 3rem;
+                margin: 0px 0 10px;
+                // height: 3rem;
             }
     
             ul {
                 list-style: none;
                 padding: 5px;
+                margin: 0;
+
+                a {
+                    color: rgb(9, 54, 47);
+                }
             }
         }
     }

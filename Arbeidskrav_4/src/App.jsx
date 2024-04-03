@@ -28,11 +28,11 @@ function App() {
 
   useEffect(()=>{
       getData()
-      // setCurrentId(localStorage.getItem("karakterID"))
       if (location.pathname === "/") {
         setQuery("james+bond")
       }
       sessionStorage.setItem("booktittle", query.replace(/\s+/g, '+').toLowerCase())
+      // setCurrentId(sessionStorage.getItem("booktittle"))
     },[query, location])
 
   // useEffect(() => {
@@ -45,8 +45,7 @@ function App() {
      <Layout content={content} setQuery={setQuery} query={query}>
       <Routes>
         <Route index element={<Navigate replace to="/james+bond" />} />
-        <Route path=":slug" element={<Bookcard content={content} setCurrentId={setCurrentId} />}>
-          </Route>
+        <Route path=":slug" element={<Bookcard content={content} setCurrentId={setCurrentId} />}/>
           {/* <Route path=':slug' element={<Searchresult content={content} query={query}/>} /> */}
           {/* <Route
             path={`/${query.replace(/\s+/g, '-')[0].toLowerCase()}`}
