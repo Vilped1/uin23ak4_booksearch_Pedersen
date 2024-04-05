@@ -14,6 +14,6 @@ export default function Searchresult({content, query}) {
     }, [query])
     
     return (
-        <Bookcard/>
+        <Bookcard />
     )
 }

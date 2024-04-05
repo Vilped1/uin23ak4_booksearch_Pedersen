@@ -29,10 +29,12 @@
 
         .noimg {
             margin-right: 1rem;
-            background-color: #e8e6dd;
+            background-color: rgb(240, 222, 215);
             width: 6rem;
             /* height: 20rem; */
-            border: 0.25rem solid beige;
+            // border: 0.25rem solid beige;
+            border: 0.25rem solid rgb(244, 211, 203);
+
             /* text-align: center; */
             padding: 0 0 .5rem 0;
             /* margin: 0 1rem 0 0; */
@@ -58,7 +60,11 @@
                 margin: 0;
 
                 a {
-                    color: rgb(9, 54, 47);
+                    // color: rgb(9, 54, 47);
+                    color: rgb(85 26 139);
+                    color: rgb(206 149 154);
+                    color: rgb(127 78 141);
+                    // text-decoration: none;
                 }
             }
         }

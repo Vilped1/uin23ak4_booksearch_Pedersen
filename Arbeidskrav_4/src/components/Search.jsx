@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react"
-import { Link } from 'react-router-dom'
-import Searchresult from "./Searchresult"
 
-export default function Search({ content, setQuery, setCurrentId }) {
+export default function Search({ books, setQuery, setCurrentId, loading, setLoading }) {
 
-    console.log(content)
     const [search, setSearch] = useState("")
     const [searchError, setSearchError] = useState(false)
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -15,6 +13,7 @@ export default function Search({ content, setQuery, setCurrentId }) {
         } else {
             setSearchError(false)
             setQuery(search)
+            setLoading(true)
         }
     }
 
@@ -22,12 +21,13 @@ export default function Search({ content, setQuery, setCurrentId }) {
         setSearch(event.target.value)
     }
 
-    // const handleClick = (id) => {
-    //     setCurrentId(id)
-    //     localStorage.setItem("BokID", id)
-    // }
+    useEffect(() => {
+        setLoading(false)
+        if (books.length > 0)
+            setLoading(false)
+    }, [books])
 
-    console.log("S", content)
+    console.log("S", books)
 
     return (
         <>
@@ -37,6 +37,8 @@ export default function Search({ content, setQuery, setCurrentId }) {
                 <input type="submit" value="Søk" />
                 {searchError && <p id="error">Skriv minimum 3 karakterer for å kunne søke</p>}
             </form>
+            {loading && <p>Laster...</p> }
+            {books.length === 0 && !loading && <p>Ingen resultater</p>}
         </>
     )
 }

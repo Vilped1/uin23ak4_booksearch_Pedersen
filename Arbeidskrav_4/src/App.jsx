@@ -2,25 +2,20 @@ import { useEffect, useState } from 'react'
 // import './App.css'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Layout from './components/Layout'
-import Home from './components/Home'
-import Search from './components/Search'
 import Bookcard from './components/Bookcard'
-import Searchresult from './components/Searchresult'
 
 function App() {
 
-  const [content, setContent] = useState([])
-  const [query, setQuery] = useState(sessionStorage.getItem("booktittle") || "james+bond")
-  const [currentId, setCurrentId] = useState("")
+  const [books, setBooks] = useState([])
+  const [query, setQuery] = useState(sessionStorage.getItem("booktittle"))
+  const [loading, setLoading] = useState(false)
   const location = useLocation()
 
-  // https://openlibrary.org/search.json?title=james+bond+original+series
-  // https://openlibrary.org/search.json?title=${query}
   const getData = async() => {
     try {
       const response = await fetch(`https://openlibrary.org/search.json?title=${query}`)
       const data = await response.json()
-      setContent(data.docs)
+      setBooks(data.docs)
     } catch {
       console.error("Errorrr")
     }
@@ -28,28 +23,19 @@ function App() {
 
   useEffect(()=>{
       getData()
+      setLoading(true)
       if (location.pathname === "/") {
         setQuery("james+bond")
       }
       sessionStorage.setItem("booktittle", query.replace(/\s+/g, '+').toLowerCase())
-      // setCurrentId(sessionStorage.getItem("booktittle"))
     },[query, location])
-
-  // useEffect(() => {
-  // }, [query])
-
-    // https://openlibrary.org/search.json?q=james+bond&fields=key,title,author_name,editions
 
   return (
     <>
-     <Layout content={content} setQuery={setQuery} query={query}>
+     <Layout books={books} setQuery={setQuery} query={query} loading={loading} setLoading={setLoading}>
       <Routes>
-        <Route index element={<Navigate replace to="/james+bond" />} />
-        <Route path=":slug" element={<Bookcard content={content} setCurrentId={setCurrentId} />}/>
-          {/* <Route path=':slug' element={<Searchresult content={content} query={query}/>} /> */}
-          {/* <Route
-            path={`/${query.replace(/\s+/g, '-')[0].toLowerCase()}`}
-            element={<Searchresult content={content} query={query} setQuery={setQuery} />}/> */}
+        <Route index element={<Navigate replace to="/books" />} />
+        <Route path=":slug" element={<Bookcard books={books} loading={loading}/>}/>
       </Routes>
     </Layout>
     </>
