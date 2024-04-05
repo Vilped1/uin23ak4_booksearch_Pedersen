@@ -44,14 +44,8 @@ export default function Bookcard ({books, loading}) {
 
                                 <br />
                                 
-                                {/* Er klar over at det er ikke dette dere mente med ekstra oppgaven, men jeg fikk ikke tid til å legge det inn slik dere ville ha det og jeg syns det var litt gøy at dette var en mulighet :) */}
-                                {item?.key ? (
-                                    <li><a href={`https://openlibrary.org${item?.key}`}>Mer om boka...</a></li>
-                                ) : (
-                                    <span>Link ikke tilgjengelig</span>
-                                )}
-
-                                <Link to={`/books/${encodeURIComponent(item?.key.replace(/\s+/g, ''))}`}>More details</Link>
+                                {/* Link til side med litt mer info om boka. encodeURIComponent brukes for å sikre at spesialtegn i tittelen er riktig kodet i URL-en */}
+                                <Link to={`/books/${encodeURIComponent(item?.key.replace(/\s+/g, ''))}`} >Mer om boka...</Link>
                             </ul>
                         </section>
                     </article>
