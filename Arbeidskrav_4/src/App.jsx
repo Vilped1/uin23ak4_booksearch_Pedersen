@@ -10,13 +10,14 @@ import ReadMore from './components/ReadMore'
 
 function App() {
 
-  // !!
+
   const [books, setBooks] = useState([])
+  // Sier at det som står i sessionStorage skal hentes
   const [query, setQuery] = useState(sessionStorage.getItem("booktittle"))
   const [loading, setLoading] = useState(true)
   const location = useLocation()
 
-  // !!
+  // Variabel for å hente ut info fra API-et
   const getData = async() => {
     try {
       const response = await fetch(`https://openlibrary.org/search.json?title=${query}`)

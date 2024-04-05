@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
-import ReadMore from './ReadMore';
 
 export default function Bookcard ({books, loading}) {
 
@@ -45,7 +43,7 @@ export default function Bookcard ({books, loading}) {
                                 <br />
                                 
                                 {/* Link til side med litt mer info om boka. encodeURIComponent brukes for å sikre at spesialtegn i tittelen er riktig kodet i URL-en */}
-                                <Link to={`/books/${encodeURIComponent(item?.key.replace(/\s+/g, ''))}`} >Mer om boka...</Link>
+                                <Link to={`/books/${encodeURIComponent(item?.key)}`} >Mer om boka...</Link>
                             </ul>
                         </section>
                     </article>

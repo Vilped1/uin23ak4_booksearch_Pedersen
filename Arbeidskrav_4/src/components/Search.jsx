@@ -29,8 +29,8 @@ export default function Search({ books, setQuery, setCurrentId, loading, setLoad
         setSearch(event.target.value)
     }
 
-// !!
     useEffect(() => {
+        // Setter Loading til false slik når siden er lastet inn slik at det kan vise "ingen resultater" og at den ikke skal vises hvis arrayen er er lenger enn 0
         setLoading(false)
         if (books.length > 0) {
             setLoading(false)
@@ -53,7 +53,7 @@ export default function Search({ books, setQuery, setCurrentId, loading, setLoad
             {/* Dette er ved hjelp av Chat-gpt */}
             {/* Viser brukeren at siden laster etter at de har trykket søk */}
             {loading && <p>Laster...</p> }
-            {/* Hvis lengden på arrayen er lik 0 vil det komme opp en melding om dette at søket ikke ga noen resultater!! */}
+            {/* Hvis lengden på arrayen er lik 0 vil det komme opp en melding om dette at søket ikke ga noen resultater og at loading ikke lenger skal vises */}
             {books.length === 0 && !loading && <p>Ingen resultater</p>}
         </>
     )
