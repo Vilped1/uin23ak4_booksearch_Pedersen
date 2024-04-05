@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Layout from './components/Layout'
 import Bookcard from './components/Bookcard'
+import ReadMore from './components/ReadMore'
 
 // Har skjønt minstekravet med komponentet Searchresult, men siden appen er så liten har jeg funnet en annen løsning som funker like bra
 
@@ -44,7 +45,11 @@ function App() {
      <Layout books={books} setQuery={setQuery} query={query} loading={loading} setLoading={setLoading}>
       <Routes>
         <Route index element={<Navigate replace to="/books" />} />
-        <Route path=":slug" element={<Bookcard books={books} loading={loading}/>}/>
+        <Route path='books' element={<Bookcard books={books} loading={loading}/>}/>
+        {/* <Route path='/readmore' element={<ReadMore />} /> */}
+        <Route path='books/:key' element={<ReadMore books={books} />}/>
+          {/* <ReadMore/>
+        </Route> */}
       </Routes>
     </Layout>
     </>

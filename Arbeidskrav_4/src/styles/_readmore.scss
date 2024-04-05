@@ -1,0 +1,23 @@
+body {
+    // display: flex;
+    // width: 100%;
+    
+    .infocard {
+        display: grid;
+        align-items: flex-start;
+
+        article {
+            display: flex;
+
+            section {
+                display: flex;
+            }
+        }
+
+        img {
+            width: 10rem;
+            float: right;
+            text-align: right;
+        }
+    }
+}

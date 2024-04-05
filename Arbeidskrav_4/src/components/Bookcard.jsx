@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
+import ReadMore from './ReadMore';
 
 export default function Bookcard ({books, loading}) {
+
+    const [readMore, setReadMore] = useState(false)
 
     console.log("Home", books)
 
@@ -49,6 +52,14 @@ export default function Bookcard ({books, loading}) {
                                 ) : (
                                     <span>Link ikke tilgjengelig</span>
                                 )}
+
+                                {/* <a onClick={() => setReadMore(!readMore)}>Read more</a>
+                                {readMore && <ReadMore />} */}
+
+                                {/* https://www.educative.io/answers/how-to-implement-a-read-more-link-in-react!! */}
+                                {/* <Link to="/ReadMore"> read more</Link> */}
+                                {/* <Link to={"/books/${index}"}>Les mer</Link> */}
+                                <Link to={`/books/${encodeURIComponent(item?.key.replace(/\s+/g, ''))}`}>More details</Link>
                                     {/* <Link to={`https://www.amazon.com/s?k=${item?.id_amazon}`} onClick={() => handleClick()}>Kjøp her!</Link></li> */}
                             </ul>
                         </section>
