@@ -13,7 +13,7 @@ function App() {
 
   const [books, setBooks] = useState([])
   // Sier at det som står i sessionStorage skal hentes
-  const [query, setQuery] = useState(sessionStorage.getItem("booktittle"))
+  const [query, setQuery] = useState(sessionStorage.getItem("booktittle") || "james+bond")
   const [loading, setLoading] = useState(true)
   const location = useLocation()
 
